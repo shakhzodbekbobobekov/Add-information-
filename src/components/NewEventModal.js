@@ -1,21 +1,21 @@
 import "./NewEventModal.css";
 import { useState } from "react";
 
-function NewEventModal() {
-  const [name, setName] = useState("");
-  const [date, setDate] = useState("");
+function NewEventModal({ addEvent }) {
+  const [fName, setFname] = useState("");
+  const [day, setDay] = useState("");
   const [error, setError] = useState("");
 
   const hanleForm = (e) => {
     e.preventDefault();
-    if (name.length > 0 && date.length > 0) {
-      console.log({ name, date });
+    if (fName.length > 0 && day.length > 0) {
+      addEvent({ id: Math.random(), day, fName });
       setError("");
     } else {
       setError("PS: Add info ✍");
     }
-    setName("");
-    setDate("");
+    setFname("");
+    setDay("");
   };
 
   return (
@@ -24,16 +24,17 @@ function NewEventModal() {
         <span>Name:</span>
         <input
           type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={fName}
+          onChange={(e) => setFname(e.target.value)}
+          placeholder="Shaxzodbek Bobobekov"
         />
       </label>
       <label>
         <span>Date:</span>
         <input
           type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
+          value={day}
+          onChange={(e) => setDay(e.target.value)}
         />
       </label>
       <button className="eventBtns">Add</button>

@@ -4,11 +4,12 @@ import Modal from "./components/Modal";
 
 function App() {
   const [showItem, setShowItem] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const [found, setFound] = useState("");
   const [events, setEvents] = useState([
-    { id: "1", day: "11.11.2001", fName: "Muhammadjon" },
-    { id: "2", day: "12.12.2002", fName: "Alijon" },
-    { id: "3", day: "10.10.2000", fName: "Abu Bakr" },
+    { id: "1", day: "2001.11.11.", fName: "Muhammadjon" },
+    { id: "2", day: "2002.12.12.", fName: "Alijon" },
+    { id: "3", day: "2000.10.10.", fName: "Abu Bakr" },
   ]);
 
   const removeBtn = (id) => {
@@ -27,11 +28,24 @@ function App() {
     setShowItem(false);
     setFound("Not Found");
   };
+
+  const addEvent = (eventa) => {
+    setEvents((events) => {
+      return [...events, eventa];
+    });
+  };
+
+  const closeBtn = () => {
+    setShowModal(false);
+  };
+
   return (
     <div>
       <h1>Happy birthday 🥳</h1> <br />
-      <button onClick={showItemBtn}>Show item</button>
-      <button onClick={hideItemBtn}>Hide item</button>
+      <div>
+        <button onClick={showItemBtn}>Show item</button>
+        <button onClick={hideItemBtn}>Hide item</button>
+      </div>
       {showItem && (
         <>
           {events.map((event) => {
@@ -45,13 +59,16 @@ function App() {
           })}
         </>
       )}
-      {events.length === 0 && <h4>No info, add a info</h4>}
+      {/* {events.length === 0 && <h4>No info, add a info</h4>} */}
       {!showItem && (
         <>
           <h4>{found} 404</h4>
         </>
       )}
-      <Modal />
+      <button onClick={() => setShowModal(true)} className="showModal">
+        Show Modal
+      </button>
+      {showModal && <Modal addEvent={addEvent} closeBtn={closeBtn} />}
     </div>
   );
 }

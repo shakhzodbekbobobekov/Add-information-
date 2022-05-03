@@ -3,14 +3,14 @@ import "./Modal.css";
 
 import NewEventModal from "./NewEventModal";
 
-function Modal() {
+function Modal({ addEvent, closeBtn }) {
   return (
     <div className="modal-backdrop">
       <div className="modal">
-        <NewEventModal />
-        <div className="salom">
-          <button className="eventBtns">Close</button>
-        </div>
+        <NewEventModal addEvent={addEvent} />
+        <button onClick={closeBtn} className="eventBtns">
+          Close
+        </button>
       </div>
     </div>
   );

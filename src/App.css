@@ -1,3 +1,4 @@
+
 .container {
     border: 1px solid rgb(160, 158, 158);
     width: 50%;
@@ -8,6 +9,10 @@
     justify-content: center;
     align-items: center;
     background-color: #f1f1f1;
+}
+
+h1 {
+    font-size: 1.5rem;
 }
 
 button {
@@ -28,5 +33,13 @@ button {
 
 .eventBtns:hover {
     background-color: #ccc;
+    cursor: pointer;
+}
+
+.showModal {
+    width: 40%;
+    padding: 10px;
+    font-size: 16px;
+    letter-spacing: 2px;
     cursor: pointer;
 }
