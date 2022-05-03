@@ -3,6 +3,7 @@ import "./App.css";
 
 function App() {
   const [showItem, setShowItem] = useState(true);
+  const [found, setFound] = useState("");
   const [events, setEvents] = useState([
     { id: "1", day: "11.11.2001", fName: "Muhammadjon" },
     { id: "2", day: "12.12.2002", fName: "Alijon" },
@@ -23,10 +24,11 @@ function App() {
 
   const hideItemBtn = () => {
     setShowItem(false);
+    setFound("Not Found");
   };
   return (
     <div>
-      <h1>Happy birthday 🐱‍🏍</h1> <br />
+      <h1>Happy birthday 🥳</h1> <br />
       <button onClick={showItemBtn}>Show item</button>
       <button onClick={hideItemBtn}>Hide item</button>
       {showItem && (
@@ -40,6 +42,11 @@ function App() {
               </div>
             );
           })}
+        </>
+      )}
+      {!showItem && (
+        <>
+          <h4>{found} 404</h4>
         </>
       )}
     </div>
