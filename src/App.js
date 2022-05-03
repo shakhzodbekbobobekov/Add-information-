@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import Modal from "./components/Modal";
 
 function App() {
   const [showItem, setShowItem] = useState(true);
@@ -38,17 +39,19 @@ function App() {
               <div className="container" key={event.id}>
                 <h1>{event.fName}</h1>
                 <p>{event.day}</p>
-                <button onClick={() => removeBtn(event.id)}>O'chirish</button>
+                <button onClick={() => removeBtn(event.id)}>Remove</button>
               </div>
             );
           })}
         </>
       )}
+      {events.length === 0 && <h4>No info, add a info</h4>}
       {!showItem && (
         <>
           <h4>{found} 404</h4>
         </>
       )}
+      <Modal />
     </div>
   );
 }
