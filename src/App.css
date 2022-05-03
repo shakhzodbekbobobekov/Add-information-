@@ -1,0 +1,16 @@
+.container {
+    border: 1px solid rgb(160, 158, 158);
+    width: 50%;
+    margin: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f1f1f1;
+}
+
+button {
+    margin: 10px;
+    padding: 7px 14px;
+}
