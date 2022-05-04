@@ -59,7 +59,7 @@ function App() {
           })}
         </>
       )}
-      {/* {events.length === 0 && <h4>No info, add a info</h4>} */}
+      {events.length === 0 && <h4>No info, add a info</h4>}
       {!showItem && (
         <>
           <h4>{found} 404</h4>
